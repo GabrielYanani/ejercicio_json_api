@@ -13,7 +13,7 @@ class pageOne extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'CONTACTOS',
+          'CONTACTOS', style: TextStyle(fontWeight:FontWeight.bold,fontSize: 35,color: Colors.white  ),
         ),
       ),
       backgroundColor: Colors.grey,
