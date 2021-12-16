@@ -1,4 +1,6 @@
 // ignore_for_file: prefer_const_constructors
+import 'dart:convert';
+
 import 'package:ejercicio_json_api/models.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio_json_api/mis_contactos.dart';
@@ -19,11 +21,11 @@ class pageOne extends StatelessWidget {
       backgroundColor: Colors.grey,
       body: FutureBuilder(
         future: getUsuarios(),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<Datos> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else {
-            return MisContactos(snapshot.data);
+            return MisContactos (snapshot.data);
           }
         },
       ),
