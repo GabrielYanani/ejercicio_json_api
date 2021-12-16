@@ -19,11 +19,11 @@ class pageOne extends StatelessWidget {
       backgroundColor: Colors.grey,
       body: FutureBuilder(
         future: getUsuarios(),
-        builder: (BuildContext context, AsyncSnapshot<Datos> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else {
-            return MisContactos(snapshot.data.data);
+            return MisContactos(snapshot.data);
           }
         },
       ),

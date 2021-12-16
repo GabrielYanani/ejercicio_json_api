@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-Future<Datos> getUsuarios() async {
-  final respuesta = await http.get(Uri.parse('https://reqres.in/api/users'));
+Future <Datos> getUsuarios() async {
+  final respuesta = await http.get(Uri.parse('https://6050f73e5346090017670fee.mockapi.io/users'));
   return datosFromJson(respuesta.body);
 }

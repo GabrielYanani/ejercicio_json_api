@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ejercicio_json_api/models.dart';
 
 class MisContactos extends StatelessWidget {
-  final List<Usuarios> usuarios;
+  final List<Datos> usuarios;
   MisContactos(this.usuarios);
 
   @override
@@ -16,9 +16,9 @@ class MisContactos extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(tileColor: Colors.white,
-              title: Text('${usuario.firstName} ${usuario.lastName}'),
-              subtitle: Text(usuario.email),leading: Image.network(usuario.avatar),
-              trailing: Text('${usuario.id}'),
+              title: Text('${usuario.name} ${usuario.age} años'),
+              subtitle: Text(usuario.email),leading: Image.network(usuario.image),
+              trailing: Text(usuario.id),
             ),
           );
         });
