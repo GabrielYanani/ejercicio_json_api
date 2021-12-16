@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:convert';
+
 import 'package:ejercicio_json_api/page_one.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false,
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.grey,
@@ -24,6 +27,8 @@ class MyApp extends StatelessWidget {
 }
 
 Future<Datos> getUsuarios() async {
-  final respuesta = await http.get(Uri.parse('https://reqres.in/api/users'));
-  return datosFromJson(respuesta.body);
+  final http.Response respuesta =
+      await http.get(Uri.parse('https://reqres.in/api/users'));
+  Map data = json.decode(respuesta.body);
+  return Datos.fromJson(data);
 }
